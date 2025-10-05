@@ -17,7 +17,9 @@ The project has the following file structure:
 *   `payment.html`: The payment page.
 *   `login.html`: The login page of the website.
 *   `signup.html`: The sign-up page of the website.
+*   `login-success.html`: A confirmation page shown after a user successfully logs in.
 *   `signup-success.html`: A confirmation page shown after a user successfully creates an account.
+*   `payment-successful.html`: A confirmation page shown after a user successfully completes a payment.
 *   `article1.html` - `article5.html`: Placeholder pages for articles.
 *   `refund-policy.html`: The refund policy page.
 *   `privacy-policy.html`: The privacy policy page.
@@ -48,7 +50,11 @@ The website has the following design and features:
     *   The forms are presented in a centered, card-like container with a box shadow, providing a clean and focused user experience.
     *   The layout adapts seamlessly to different screen sizes, ensuring usability on both mobile and desktop devices.
 *   **Realtime User Data:** Upon successful signup, user information (username and email) is stored in the Firebase Realtime Database.
-*   **Signup Success Page:** After successfully creating an account, the user is redirected to a confirmation page with a link to the login page. This provides clear feedback and a better user experience.
+*   **Success Pages (Login, Signup, Payment):**
+    *   The success pages (`login-success.html`, `signup-success.html`, `payment-successful.html`) provide clear and concise confirmation messages to the user.
+    *   Each success page features a centered container with a title, a message, and a call-to-action button, ensuring a consistent and user-friendly experience.
+    *   The `payment-successful.html` page includes a prominent checkmark icon for immediate visual confirmation.
+    *   All success pages are fully responsive.
 *   **Form Validation:** The login and signup forms have client-side validation to ensure that users enter valid data before submitting to Firebase.
 *   **User Personalization:** The header of the website now greets logged-in users by their name, creating a more personal and welcoming experience.
 *   **Profile Icon for Authentication:** Replaced the "Login" and "Logout" text buttons with a profile icon for a cleaner, more modern UI. The icon directs to the login page for guests and acts as a logout button for authenticated users.
@@ -65,6 +71,8 @@ The website has the following design and features:
     *   Tabbed interface to select between Credit/Debit Card, UPI, and Netbanking payment methods.
     *   Styled forms for each payment method, now fully responsive.
     *   The UPI tab features clickable icons for Google Pay and Paytm. Clicking an icon dynamically generates and displays a QR code for the corresponding UPI ID.
+    *   A 40-second countdown timer is now displayed above the QR code, which automatically clears the QR code and displays an "Expired" message when the time runs out. This improves security and prompts the user to act quickly.
+    *   The page now correctly links to the `payment-successful.html` page upon completing a payment.
 *   **Footer:**
     *   A consistent footer is present on all pages.
     *   The footer contains links to the privacy policy, refund policy, and digital delivery policy.
@@ -74,12 +82,16 @@ The website has the following design and features:
     *   Article cards now feature a background color, a border that highlights on hover, and a box shadow for a lifting effect.
     *   The typography has been refined for better readability, and a "Read More" link has been added to each card.
     *   The section is fully responsive and stacks vertically on smaller screens.
+*   **UPI Payment Flow:**
+    *   The "I have completed the payment" button is now initially hidden on the UPI payment tab.
+    *   The button is displayed only after the user generates a QR code.
+    *   If the QR code expires, the button is hidden again.
+    *   The user is automatically redirected to the payment success page when the UPI timer reaches 20 seconds.
 
 ## Current Task
 
-*   **Task:** Check and fix the UI styles in `login.html` and make it as responsive.
+*   **Task:** Deploy the website to Firebase Hosting.
 *   **Steps:**
-    *   Added new responsive styles to `style.css` for the authentication container (`auth-container`), creating a centered, card-like layout for the login form.
-    *   Updated `login.html` to include the `cart-count` element in the header and ensure the form structure is consistent with the new styles.
-    *   Updated the copyright year to 2024 in `login.html`.
-    *   Updated `blueprint.md` to document the UI improvements for the login page.
+    *   Configure the project for Firebase by creating the `.idx/mcp.json` file.
+    *   Deploy the website using the Firebase Hosting deployment tool.
+    *   Update the `blueprint.md` to reflect the successful deployment.

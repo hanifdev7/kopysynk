@@ -47,7 +47,7 @@
 
                 <div id="card-payment" class="payment-method-content active">
                     <h2 class="subsection-title">Pay with Card</h2>
-                    <form id="card-payment-form" class="payment-form">
+                    <form id="card-payment-form" class="payment-form" action="payment-successful.html">
                         <div class="form-group">
                             <label for="card-number">Card Number</label>
                             <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
@@ -86,7 +86,11 @@
                                 </h3>
                             </div>
                         </div>
+                        <div id="qr-timer-container" class="qr-timer-container"></div>
                         <div id="qr-code-display" class="qr-code-container"></div>
+                        <div id="upi-confirmation-button" style="text-align: center; margin-top: 2rem; display: none;">
+                            <a href="payment-successful.html" class="btn btn-primary">I have completed the payment</a>
+                        </div>
                     </div>
                 </div>
 
@@ -104,7 +108,7 @@
                                 <option value="bank5">Test National Bank</option>
                             </select>
                         </div>
-                        <button class="btn btn-primary">Proceed to Bank</button>
+                        <a href="payment-successful.html" class="btn btn-primary">Proceed to Bank</a>
                     </div>
                 </div>
             </div>

@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
+    function clearCart() {
+        localStorage.removeItem('cart');
+    }
+
     function updateCartCount() {
         const cart = getCart();
         const cartCountElement = document.getElementById('cart-count');
@@ -177,11 +181,20 @@ document.addEventListener('DOMContentLoaded', () => {
         displayCart();
     }
 
+    // Clear cart on successful payment
+    if (window.location.pathname.endsWith('payment-successful.html')) {
+        clearCart();
+        updateCartCount();
+    }
+
     // Payment Page Logic
     const paymentTabs = document.querySelectorAll('.payment-method-tab');
     const paymentContents = document.querySelectorAll('.payment-method-content');
     const upiButtons = document.querySelectorAll('.upi-payment-button');
     const qrCodeDisplay = document.getElementById('qr-code-display');
+    const qrTimerContainer = document.getElementById('qr-timer-container');
+    const upiConfirmationButton = document.getElementById('upi-confirmation-button');
+    let qrCodeTimer;
 
     if (paymentTabs.length > 0) {
         paymentTabs.forEach(tab => {
@@ -193,6 +206,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById(`${method}-payment`).classList.add('active');
             });
         });
+    }
+
+    function startQrCodeTimer() {
+        if (qrCodeTimer) {
+            clearInterval(qrCodeTimer);
+        }
+
+        let timeLeft = 40;
+        qrTimerContainer.textContent = `QR code expires in ${timeLeft}s`;
+
+        qrCodeTimer = setInterval(() => {
+            timeLeft--;
+            qrTimerContainer.textContent = `QR code expires in ${timeLeft}s`;
+
+            if (timeLeft === 20) {
+                window.location.href = 'payment-successful.html';
+            }
+
+            if (timeLeft <= 0) {
+                clearInterval(qrCodeTimer);
+                qrTimerContainer.textContent = 'QR Code Expired';
+                qrCodeDisplay.innerHTML = '';
+                if (upiConfirmationButton) {
+                    upiConfirmationButton.style.display = 'none';
+                }
+            }
+        }, 1000);
     }
 
     if (upiButtons.length > 0 && qrCodeDisplay) {
@@ -219,6 +259,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     colorLight: "#ffffff",
                     correctLevel: QRCode.CorrectLevel.H
                 });
+                
+                if (upiConfirmationButton) {
+                    upiConfirmationButton.style.display = 'block';
+                }
+
+                startQrCodeTimer();
             });
         });
     }

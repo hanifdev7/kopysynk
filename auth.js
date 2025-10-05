@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then((userCredential) => {
                     // Signed in
                     console.log('User logged in:', userCredential.user);
-                    window.location.href = 'index.html';
+                    window.location.href = 'login-success.html';
                 })
                 .catch((error) => {
                     console.error("Login Error:", error);

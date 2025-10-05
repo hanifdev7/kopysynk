@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Kopysynk Consulting</title>
+    <title>Payment Successful - Kopysynk Consulting</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,35 +23,25 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="header-actions">
-                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
                 <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="content-section page-hero">
-            <h1 class="section-title">Sign Up</h1>
-        </section>
-
         <section class="content-section">
-            <div class="auth-container">
-                <form class="auth-form" action="signup.html">
-                    <div class="form-group">
-                        <input type="text" name="username" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" placeholder="Your Password" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="confirm-password" placeholder="Confirm Password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                </form>
-                <p class="auth-switch">Already have an account? <a href="login.html">Login</a></p>
+            <div class="success-container">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h1 class="section-title">Payment Successful</h1>
+                <p>Thank you for your purchase. Your course materials are now available in your account.</p>
+                <a href="index.html" class="btn btn-primary">Go to Homepage</a>
             </div>
         </section>
     </main>
@@ -64,11 +54,10 @@
         </p>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="firebase-config.js"></script>
-    <script src="auth.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
