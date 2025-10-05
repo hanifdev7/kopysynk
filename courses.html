@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Kopysynk Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">Kopysynk Consulting</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <h1 class="section-title">Our Courses</h1>
+        </section>
+
+        <section class="content-section">
+            <h2 class="subsection-title">IT & Technology Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" alt="Cloud Computing" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Introduction to Cloud Computing</h3>
+                        <p>Learn cloud fundamentals, deployment models, and hands-on exercises with AWS, Azure, or Google Cloud.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data Analytics" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Data Analytics & Visualization with Excel and Power BI</h3>
+                        <p>Transform raw data into actionable insights using Excel, Power BI, and visualization techniques.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4133d5a3ca46?q=80&w=2070&auto=format&fit=crop" alt="Cybersecurity" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Cybersecurity Fundamentals</h3>
+                        <p>Learn how to protect systems, data, and networks from cyber threats.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Agile & Scrum" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Agile & Scrum for IT Projects</h3>
+                        <p>Master Agile methodologies, Scrum ceremonies, and project management best practices.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="subsection-title">Product Management Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2134&auto=format&fit=crop" alt="Product Management" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Product Management 101: From Idea to Launch</h3>
+                        <p>Learn the product lifecycle, market research, roadmap planning, and launching products successfully.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop" alt="UX Design" class="course-image">
+                    <div class="course-card-content">
+                        <h3>User Experience (UX) and Design Thinking</h3>
+                        <p>Explore user-centered design principles to build products your customers love.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Product Analytics" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Product Metrics and Analytics</h3>
+                        <p>Understand KPIs, product performance measurement, and data-driven decision making.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="subsection-title">Business Analysis & Soft Skills</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop" alt="Business Analysis" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Business Analysis Fundamentals</h3>
+                        <p>Learn requirement gathering, stakeholder management, and creating functional specifications.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1611095965933-5a0a9a3a8b6e?q=80&w=2070&auto=format&fit=crop" alt="Advanced Excel" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Advanced Excel for Business Analysts</h3>
+                        <p>Excel formulas, pivot tables, and dashboards for efficient analysis and reporting.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" alt="Communication Skills" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Communication & Stakeholder Management for Professionals</h3>
+                        <p>Enhance presentation, negotiation, and communication skills for IT and business projects.</p>
+                        <div class="course-card-actions">
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2024 Kopysynk Consulting | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="digital-delivery-policy.html">Digital Delivery Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
