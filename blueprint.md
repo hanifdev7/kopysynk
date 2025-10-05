@@ -1,97 +1,64 @@
-# Project Blueprint
+# Kopysynk Consulting Website Blueprint
 
 ## Overview
 
-This project is a consulting website for Kopysynk Consulting. It is a modern, responsive website with a clean and professional design. The website is built with HTML, CSS, and JavaScript. It integrates Firebase for user authentication and stores user data in a Realtime Database. The site includes a home page, about page, courses page, articles page, contact page, a shopping cart, several policy pages, and a payment page.
+This document outlines the blueprint for the Kopysynk Consulting website, a modern, responsive, and feature-rich web application designed to showcase the company's services, engage users, and facilitate course enrollment. The website is built using HTML, CSS, and JavaScript, with Firebase for backend services like authentication and database management.
 
-## Project Structure
+## Implemented Features
 
-The project has the following file structure:
+### Design and Layout
 
-*   `index.html`: The home page of the website.
-*   `about.html`: The about page of the website.
-*   `courses.html`: The courses page of the website.
-*   `articles.html`: The articles page of the website.
-*   `contact.html`: The contact page of the website.
-*   `cart.html`: The shopping cart page.
-*   `payment.html`: The payment page.
-*   `login.html`: The login page of the website.
-*   `signup.html`: The sign-up page of the website.
-*   `login-success.html`: A confirmation page shown after a user successfully logs in.
-*   `signup-success.html`: A confirmation page shown after a user successfully creates an account.
-*   `payment-successful.html`: A confirmation page shown after a user successfully completes a payment.
-*   `article1.html` - `article5.html`: Placeholder pages for articles.
-*   `refund-policy.html`: The refund policy page.
-*   `privacy-policy.html`: The privacy policy page.
-*   `digital-delivery-policy.html`: The digital delivery policy page.
-*   `style.css`: The stylesheet for the website.
-*   `main.js`: The main JavaScript file for the website.
-*   `auth.js`: Handles user authentication (login and signup) using Firebase Authentication and stores user data in Firebase Realtime Database.
-*   `firebase-config.js`: Contains the Firebase project configuration (requires user-specific credentials).
-*   `.idx/mcp.json`: Firebase MCP configuration file.
-*   `blueprint.md`: This file.
+-   **Modern Aesthetics**: The website features a dark-themed, professional design with a consistent color scheme, typography, and layout across all pages.
+-   **Responsive Design**: The layout is fully responsive and optimized for various devices, including desktops, tablets, and mobile phones.
+-   **Navigation**: A clear and intuitive navigation bar is present on all pages, providing easy access to different sections of the website.
+-   **Responsive Login Button**: A login button is included in the header, which is responsive and adapts to different screen sizes.
+-   **SVG Logo**: A sleek, scalable SVG logo has been created and integrated into the header of all pages.
 
-## Design and Features
+### Core Pages
 
-The website has the following design and features:
+-   **Home Page (`index.html`)**: The landing page of the website, featuring a hero section, featured courses, and latest articles to engage users.
+-   **About Page (`about.html`)**: Provides information about Kopysynk Consulting, its mission, and its team.
+-   **Courses Page (`courses.html`)**: Lists all available courses with detailed descriptions, images, and an "Add to Cart" option.
+-   **Articles Page (`articles.html`)**: Displays a collection of articles with links to individual article pages.
+-   **Contact Page (`contact.html`)**: Includes a contact form for users to send inquiries.
+-   **Login/Signup Pages (`login.html`, `signup.html`)**: User authentication pages for signing in or creating a new account.
 
-*   **Modern Design:** The website has a modern and professional design with a clean layout and a consistent color scheme.
-*   **Responsive:** The website is fully responsive and works well on all devices, including desktops, tablets, and smartphones.
-*   **Navigation:** The website has a clear and easy-to-use navigation menu that allows users to easily find the information they are looking for.
-*   **Home Page:** The home page features a hero section with a headline and a call-to-action button, as well as sections for courses and articles.
-*   **About Page:** The about page provides information about the company and its mission.
-*   **Courses Page:** The courses page lists the courses offered by the company, with a brief description and an "Add to Cart" button for each course.
-*   **Articles Page:** The articles page has been restyled to use the same card-based design as the home page's "Recent Articles" section. This provides a consistent and responsive layout for browsing articles.
-*   **Contact Page:** The contact page includes a contact form that users can use to get in touch with the company.
-*   **Policy Pages:** The site includes dedicated pages for the refund policy, privacy policy, and digital delivery policy.
-*   **Firebase Authentication:** The website uses Firebase Authentication for secure user signup and login with email and password.
-*   **Authentication Pages (Login & Signup):**
-    *   The login and signup pages now feature a modern, responsive design.
-    *   The forms are presented in a centered, card-like container with a box shadow, providing a clean and focused user experience.
-    *   The layout adapts seamlessly to different screen sizes, ensuring usability on both mobile and desktop devices.
-*   **Realtime User Data:** Upon successful signup, user information (username and email) is stored in the Firebase Realtime Database.
-*   **Success Pages (Login, Signup, Payment):**
-    *   The success pages (`login-success.html`, `signup-success.html`, `payment-successful.html`) provide clear and concise confirmation messages to the user.
-    *   Each success page features a centered container with a title, a message, and a call-to-action button, ensuring a consistent and user-friendly experience.
-    *   The `payment-successful.html` page includes a prominent checkmark icon for immediate visual confirmation.
-    *   All success pages are fully responsive.
-*   **Form Validation:** The login and signup forms have client-side validation to ensure that users enter valid data before submitting to Firebase.
-*   **User Personalization:** The header of the website now greets logged-in users by their name, creating a more personal and welcoming experience.
-*   **Profile Icon for Authentication:** Replaced the "Login" and "Logout" text buttons with a profile icon for a cleaner, more modern UI. The icon directs to the login page for guests and acts as a logout button for authenticated users.
-*   **Shopping Cart:**
-    *   Users can add courses to their shopping cart from the courses page.
-    *   A dedicated `cart.html` page displays all items in the cart.
-    *   Users can remove items from the cart.
-    *   The total price is dynamically calculated and displayed in Indian Rupees (₹).
-    *   The cart's state is persisted using the browser's local storage.
-    *   A "Checkout" button in the cart links to the payment page.
-    *   A cart icon in the header displays the number of items in the cart.
-*   **Payment Page:**
-    *   A dedicated `payment.html` page for processing payments.
-    *   Tabbed interface to select between Credit/Debit Card, UPI, and Netbanking payment methods.
-    *   Styled forms for each payment method, now fully responsive.
-    *   The UPI tab features clickable icons for Google Pay and Paytm. Clicking an icon dynamically generates and displays a QR code for the corresponding UPI ID.
-    *   A 40-second countdown timer is now displayed above the QR code, which automatically clears the QR code and displays an "Expired" message when the time runs out. This improves security and prompts the user to act quickly.
-    *   The page now correctly links to the `payment-successful.html` page upon completing a payment.
-*   **Footer:**
-    *   A consistent footer is present on all pages.
-    *   The footer contains links to the privacy policy, refund policy, and digital delivery policy.
-    *   The footer is now styled and responsive.
-*   **Recent Articles Section (Home Page):**
-    *   The "Recent Articles" section on the home page has been restyled for a more polished and visually appealing look.
-    *   Article cards now feature a background color, a border that highlights on hover, and a box shadow for a lifting effect.
-    *   The typography has been refined for better readability, and a "Read More" link has been added to each card.
-    *   The section is fully responsive and stacks vertically on smaller screens.
-*   **UPI Payment Flow:**
-    *   The "I have completed the payment" button is now initially hidden on the UPI payment tab.
-    *   The button is displayed only after the user generates a QR code.
-    *   If the QR code expires, the button is hidden again.
-    *   The user is automatically redirected to the payment success page when the UPI timer reaches 20 seconds.
+### E-commerce and Payment
 
-## Current Task
+-   **Shopping Cart (`cart.html`)**: A fully functional shopping cart that allows users to add, remove, and view courses before proceeding to payment.
+-   **Payment Gateway (`payment.html`)**: A comprehensive payment page with multiple payment options, including:
+    -   Credit/Debit Card
+    -   UPI (with QR code generation)
+    -   Netbanking
+-   **Payment Confirmation (`payment-successful.html`)**: A page that confirms successful payment and enrollment.
 
-*   **Task:** Deploy the website to Firebase Hosting.
-*   **Steps:**
-    *   Configure the project for Firebase by creating the `.idx/mcp.json` file.
-    *   Deploy the website using the Firebase Hosting deployment tool.
-    *   Update the `blueprint.md` to reflect the successful deployment.
+### User and Wallet Functionality
+
+-   **User Authentication**: Firebase-powered user authentication for a secure and personalized experience.
+-   **User Profile**: Authenticated users can see their username and a logout option.
+-   **Kopysynk Wallet (`wallet.html`)**: A personal wallet for users to store and manage their balance.
+    -   **Add Money**: Users can add money to their wallet through the payment gateway.
+    -   **Wallet Balance**: The wallet balance is displayed in the header and on the wallet page, updating in real-time after transactions.
+
+## Current Plan and Steps
+
+### Objective: Create and Integrate a New Company Logo
+
+The goal was to create a professional SVG logo for Kopysynk Consulting and integrate it into the website's header.
+
+### Steps Taken
+
+1.  **Create SVG Logo (`logo.svg`)**:
+    -   Designed and created a new SVG logo that represents the company's focus on IT and data.
+2.  **Update HTML Files**:
+    -   Replaced the plain text logo with the new SVG logo in the header of the following files:
+        -   `index.html`
+        -   `about.html`
+        -   `courses.html`
+        -   `articles.html`
+        -   `contact.html`
+        -   `cart.html`
+        -   `login.html`
+        -   `wallet.html`
+
+This change enhances the brand identity of the website, providing a more professional and polished look.

@@ -76,7 +76,7 @@ body {
     gap: 1.5rem;
 }
 
-.cart-icon {
+.cart-icon, .wallet-icon, .login-button {
     position: relative;
     color: var(--primary-text);
     font-size: 1.25rem;
@@ -84,7 +84,13 @@ body {
     transition: color 0.3s ease;
 }
 
-.cart-icon:hover {
+.cart-icon:hover, .wallet-icon:hover, .login-button:hover {
+    color: var(--primary-accent);
+}
+
+#wallet-balance-header {
+    font-size: 1rem;
+    margin-left: 0.5rem;
     color: var(--primary-accent);
 }
 
@@ -649,9 +655,77 @@ body {
     color: var(--primary-accent);
 }
 
+/* Wallet Styles */
+.wallet-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.wallet-balance-card, .wallet-actions-card {
+    background-color: var(--secondary-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    text-align: center;
+}
+
+.wallet-balance-card {
+    margin-bottom: 2rem;
+}
+
+.wallet-balance-card h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--heading-text);
+    margin-bottom: 1rem;
+}
+
+#wallet-balance-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-accent);
+}
+
+.wallet-actions-card h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--heading-text);
+    margin-bottom: 1.5rem;
+}
+
+.add-money-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.add-money-form input {
+    padding: 0.75rem;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--primary-accent);
+    color: var(--primary-text);
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.add-money-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-accent);
+}
+
 @media (max-width: 992px) {
     .about-content {
         grid-template-columns: 1fr;
+    }
+
+    .courses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
@@ -728,6 +802,24 @@ body {
     .success-container h1 {
         font-size: 1.75rem;
     }
+
+    .wallet-section {
+        padding: 2rem 1rem;
+    }
+
+    .wallet-balance-card, .wallet-actions-card {
+        padding: 2rem;
+    }
+
+    #wallet-balance-amount {
+        font-size: 2.5rem;
+    }
+
+    .login-button {
+        display: block;
+        margin-top: 1rem;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -735,7 +827,7 @@ body {
         margin: 2rem auto;
         padding: 2rem;
     }
-    .courses-grid, .home-articles-grid {
+    .courses-grid, .home-articles-grid, .home-courses-grid {
         grid-template-columns: 1fr;
     }
     .upi-options {
@@ -757,5 +849,25 @@ body {
 
     .success-container p {
         font-size: 1rem;
+    }
+
+    .main-header {
+        padding: 1rem;
+    }
+
+    .content-section {
+        padding: 4rem 1rem;
+    }
+
+    .main-footer {
+        padding: 1.5rem;
+    }
+
+    .add-money-form {
+        flex-direction: column;
+    }
+
+    .add-money-form input {
+        width: 100%;
     }
 }

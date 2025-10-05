@@ -70,7 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
             userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
         }
     }
-
+    
+    function updateWalletBalanceHeader() {
+    const walletBalanceElement = document.getElementById('wallet-balance-header');
+    if (walletBalanceElement) {
+        let currentBalance = localStorage.getItem('walletBalance') || 0;
+        walletBalanceElement.textContent = `₹${parseFloat(currentBalance).toFixed(2)}`;
+    }
+}
     // Cart Functionality
     const cartContainer = document.getElementById('cart-container');
 
@@ -98,6 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+    
+    function handleResponsiveWallet() {
+    const walletIcon = document.querySelector('.wallet-icon');
+    const walletBalanceHeader = document.getElementById('wallet-balance-header');
+
+    if (window.innerWidth <= 768) {
+        walletBalanceHeader.style.display = 'none';
+    } else {
+        walletBalanceHeader.style.display = 'inline';
+    }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768) {
+            walletBalanceHeader.style.display = 'none';
+        } else {
+            walletBalanceHeader.style.display = 'inline';
+        }
+    });
+}
 
     function addToCart(course) {
         let cart = getCart();
@@ -161,16 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const buyButtons = document.querySelectorAll('.course-card .btn-secondary');
+    const buyButtons = document.querySelectorAll('.add-to-cart');
     buyButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const card = e.target.closest('.course-card');
             const course = {
-                id: card.querySelector('h3').textContent,
-                name: card.querySelector('h3').textContent,
+                id: e.target.dataset.courseId,
+                name: e.target.dataset.courseName,
                 description: card.querySelector('p').textContent,
-                price: 3999,
+                price: parseFloat(e.target.dataset.coursePrice),
                 image: card.querySelector('.course-image').src
             };
             addToCart(course);
@@ -221,7 +247,17 @@ document.addEventListener('DOMContentLoaded', () => {
             qrTimerContainer.textContent = `QR code expires in ${timeLeft}s`;
 
             if (timeLeft === 20) {
-                window.location.href = 'payment-successful.html';
+                const amount = sessionStorage.getItem('walletAddAmount');
+                if (amount) {
+                    let balance = localStorage.getItem('walletBalance') || 0;
+                    balance = parseFloat(balance) + parseFloat(amount);
+                    localStorage.setItem('walletBalance', balance);
+                    sessionStorage.removeItem('walletAddAmount');
+                    updateWalletBalanceHeader();
+                    window.location.href = 'wallet.html';
+                } else {
+                    window.location.href = 'payment-successful.html';
+                }
             }
 
             if (timeLeft <= 0) {
@@ -268,6 +304,55 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Wallet Page
+    if (window.location.pathname.endsWith('wallet.html')) {
+        const addMoneyBtn = document.getElementById('add-money-btn');
+        const amountInput = document.getElementById('amount-to-add');
+        const balanceAmount = document.getElementById('wallet-balance-amount');
+
+        let currentBalance = localStorage.getItem('walletBalance') || 0;
+        balanceAmount.textContent = `₹${parseFloat(currentBalance).toFixed(2)}`;
+        updateWalletBalanceHeader();
+
+        if (addMoneyBtn) {
+            addMoneyBtn.addEventListener('click', () => {
+                const amount = amountInput.value;
+                if (amount && parseFloat(amount) > 0) {
+                    sessionStorage.setItem('walletAddAmount', amount);
+                    window.location.href = 'payment.html';
+                } else {
+                    alert('Please enter a valid amount.');
+                }
+            });
+        }
+    }
+
+    // Update payment page for wallet funding
+    if (window.location.pathname.endsWith('payment.html')) {
+        const amount = sessionStorage.getItem('walletAddAmount');
+        if (amount) {
+            const totalElement = document.querySelector('.cart-total p');
+            if(totalElement) {
+                totalElement.innerHTML = `Amount to Add: <span>₹${parseFloat(amount).toFixed(2)}</span>`;
+            }
+            const checkoutButton = document.querySelector('.cart-total a');
+            if(checkoutButton) {
+                checkoutButton.style.display = 'none'; // Hide checkout button if not needed
+            }
+             const pageTitle = document.querySelector('.section-title');
+            if(pageTitle){
+                pageTitle.textContent = 'Add Money to Wallet';
+            }
+            const cartContainer = document.getElementById('cart-container');
+            if(cartContainer) {
+                const cartItems = cartContainer.querySelector('.cart-item');
+                if(cartItems) cartItems.style.display = 'none';
+            }
+        }
+    }
     
     updateCartCount();
+    updateWalletBalanceHeader();
+    handleResponsiveWallet();
 });

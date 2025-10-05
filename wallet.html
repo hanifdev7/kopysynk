@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Kopysynk Consulting</title>
+    <title>Kopysynk Wallet</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
             <div class="header-actions">
                 <a href="wallet.html" class="wallet-icon" aria-label="Kopysynk Wallet">
                     <i class="fas fa-wallet"></i>
-                    <span id="wallet-balance-header">₹0.00</span>
+                    <span id="wallet-balance-header">...</span> <!-- Placeholder -->
                 </a>
                 <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
                     <i class="fas fa-shopping-cart"></i>
@@ -38,7 +38,7 @@
                 <a href="login.html" class="login-button" aria-label="Login">
                     <i class="fas fa-sign-in-alt"></i>
                 </a>
-                <ul id="user-state" class="nav-links">
+                 <ul id="user-state" class="nav-links">
                     <!-- This will be populated by main.js -->
                 </ul>
                 <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
@@ -48,19 +48,20 @@
 
     <main>
         <section class="content-section page-hero">
-            <h1 class="section-title">About Kopysynk Consulting</h1>
+            <h1 class="section-title">Kopysynk Wallet</h1>
         </section>
 
-        <section class="content-section">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="subsection-title">Our Mission</h2>
-                    <p>To empower businesses and individuals with the skills and knowledge to succeed in the digital age. We provide expert-led training in IT project management, data analytics, and product management, tailored to meet the demands of today's fast-paced industries.</p>
-                    <h2 class="subsection-title">Our Story</h2>
-                    <p>Founded by a team of passionate IT professionals, Kopysynk Consulting was born from a desire to bridge the gap between technical expertise and business acumen. We believe that with the right training, anyone can learn to manage complex projects, leverage data for strategic decision-making, and build products that customers love.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Our team in a meeting">
+        <section class="content-section wallet-section">
+            <div class="wallet-balance-card">
+                <h2>Your Current Balance</h2>
+                <p id="wallet-balance-amount">₹0.00</p>
+            </div>
+
+            <div class="wallet-actions-card">
+                <h2>Add Money to Your Wallet</h2>
+                <div class="add-money-form">
+                    <input type="number" id="amount-to-add" placeholder="Enter amount in ₹" min="1" step="1">
+                    <a href="payment.html" id="add-money-btn" class="btn btn-primary">Add Money</a>
                 </div>
             </div>
         </section>
@@ -79,5 +80,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="firebase-config.js"></script>
     <script src="main.js"></script>
+
 </body>
 </html>
